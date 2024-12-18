@@ -1,3 +1,4 @@
+using DependencyLab.Models;
 using DependencyLab.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,18 +7,37 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Välj sätt att spara böcker
-// builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
-builder.Services.AddScoped<IBookRepository, CsvFileBookRepository>();
-// builder.Services.AddScoped<IBookRepository, JsonFileBookRepository>();
+switch (Settings.RepositoryChoise)
+{
+    case RepositoryChoise.InMemory:
+        builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
+        break;
+    case RepositoryChoise.Csv:
+        builder.Services.AddScoped<IBookRepository, CsvFileBookRepository>();
+        break;
+    case RepositoryChoise.Json:
+        builder.Services.AddScoped<IBookRepository, JsonFileBookRepository>();
+        break;
+
+    default:
+        throw new NotImplementedException();
+
+}
 
 // Välj hur bookservice ska fungera
 // builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IBookService, EnhancedBookService>();
 
-// Välj notification
-// builder.Services.AddScoped<INotificationService, EmailNotificationService>();
-builder.Services.AddScoped<INotificationService, ConsoleNotificationService>();
+bool isProduction = true;
 
+if (isProduction)
+{
+    builder.Services.AddScoped<INotificationService, EmailNotificationService>();
+}
+else
+{
+    builder.Services.AddScoped<INotificationService, ConsoleNotificationService>();
+}
 
 var app = builder.Build();
 

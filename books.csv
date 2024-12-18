@@ -1,5 +1,5 @@
 Id,Title,Author,ISBN,IsAvailable
-1,Design Patterns,Gang of Four,978-0201633610,true
-2,Clean Architecture,Robert C. Martin,978-0134494166,true
-3,Domain-Driven Design,Eric Evans,978-0321125217,true
-4,Refactoring,Martin Fowler,978-0134757599,true 
+1,Design Patterns (CSV),Gang of Four,978-0201633610,true
+2,Clean Architecture (CSV),Robert C. Martin,978-0134494166,true
+3,Domain-Driven Design (CSV),Eric Evans,978-0321125217,true
+4,Refactoring (CSV),Martin Fowler,978-0134757599,true 
