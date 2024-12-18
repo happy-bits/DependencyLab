@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Välj sätt att spara böcker
-builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
+// builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
+builder.Services.AddScoped<IBookRepository, CsvFileBookRepository>();
 // builder.Services.AddScoped<IBookRepository, JsonFileBookRepository>();
 
 // Välj hur bookservice ska fungera
