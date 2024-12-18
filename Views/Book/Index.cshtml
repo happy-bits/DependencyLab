@@ -1,0 +1,46 @@
+@model IEnumerable<Book>
+
+<h2>Library Books</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.ISBN</td>
+                <td>@(book.IsAvailable ? "Available" : "Borrowed")</td>
+                <td>
+                    @if (book.IsAvailable)
+                    {
+                        <a asp-action="Borrow" asp-route-id="@book.Id" class="btn btn-primary">Borrow</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Return" asp-route-id="@book.Id" class="btn btn-success">Return</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
