@@ -1,30 +1,30 @@
 [
-    {
-        "Id": 1,
-        "Title": "Design Patterns",
-        "Author": "Gang of Four",
-        "ISBN": "978-0201633610",
-        "IsAvailable": true
-    },
-    {
-        "Id": 2,
-        "Title": "Clean Architecture",
-        "Author": "Robert C. Martin",
-        "ISBN": "978-0134494166",
-        "IsAvailable": true
-    },
-    {
-        "Id": 3,
-        "Title": "Domain-Driven Design",
-        "Author": "Eric Evans",
-        "ISBN": "978-0321125217",
-        "IsAvailable": true
-    },
-    {
-        "Id": 4,
-        "Title": "Refactoring",
-        "Author": "Martin Fowler",
-        "ISBN": "978-0134757599",
-        "IsAvailable": true
-    }
+  {
+    "Id": 1,
+    "Title": "Design Patterns",
+    "Author": "Gang of Four",
+    "ISBN": "978-0201633610",
+    "IsAvailable": true
+  },
+  {
+    "Id": 2,
+    "Title": "Clean Architecture",
+    "Author": "Robert C. Martin",
+    "ISBN": "978-0134494166",
+    "IsAvailable": false
+  },
+  {
+    "Id": 3,
+    "Title": "Domain-Driven Design",
+    "Author": "Eric Evans",
+    "ISBN": "978-0321125217",
+    "IsAvailable": false
+  },
+  {
+    "Id": 4,
+    "Title": "Refactoring",
+    "Author": "Martin Fowler",
+    "ISBN": "978-0134757599",
+    "IsAvailable": true
+  }
 ]

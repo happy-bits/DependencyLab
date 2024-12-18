@@ -5,10 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register our services
-builder.Services.AddSingleton<IBookRepository, JsonFileBookRepository>();
-builder.Services.AddScoped<IBookService, EnhancedBookService>();
-builder.Services.AddScoped<INotificationService, EmailNotificationService>();
+// Välj sätt att spara böcker
+// builder.Services.AddSingleton<IBookRepository, JsonFileBookRepository>(); // Json
+builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>(); // I minnet
+
+// Välj hur bookservice ska fungera
+// builder.Services.AddScoped<IBookService, BookService>(); // Den vanliga
+builder.Services.AddScoped<IBookService, EnhancedBookService>(); // loggar + ser till att max 10 borrows
+
+// Välj notification
+// builder.Services.AddScoped<INotificationService, EmailNotificationService>(); // Skicka ut ett mejl
+builder.Services.AddScoped<INotificationService, ConsoleNotificationService>(); // Logga i consolen
+
 
 var app = builder.Build();
 
