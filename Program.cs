@@ -7,14 +7,14 @@ builder.Services.AddControllersWithViews();
 
 // Välj sätt att spara böcker
 builder.Services.AddSingleton<IBookRepository, JsonFileBookRepository>();
-builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
+// builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
 
 // Välj hur bookservice ska fungera
-builder.Services.AddScoped<IBookService, BookService>();
+// builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IBookService, EnhancedBookService>();
 
 // Välj notification
-builder.Services.AddScoped<INotificationService, EmailNotificationService>();
+// builder.Services.AddScoped<INotificationService, EmailNotificationService>();
 builder.Services.AddScoped<INotificationService, ConsoleNotificationService>();
 
 
