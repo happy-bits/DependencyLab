@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Register our services
-builder.Services.AddSingleton<IBookRepository, InMemoryBookRepository>();
-builder.Services.AddScoped<IBookService, BookService>();
-builder.Services.AddScoped<INotificationService, ConsoleNotificationService>();
+builder.Services.AddSingleton<IBookRepository, JsonFileBookRepository>();
+builder.Services.AddScoped<IBookService, EnhancedBookService>();
+builder.Services.AddScoped<INotificationService, EmailNotificationService>();
 
 var app = builder.Build();
 
